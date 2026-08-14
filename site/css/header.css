@@ -1,0 +1,457 @@
+.rc-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 9999;
+
+    width: 100%;
+
+    background-color: #FFFFFF;
+
+    border-bottom: 1px solid #F1E4D2;
+
+    box-shadow:
+        0 3px 14px rgba(90, 62, 54, 0.06);
+}
+
+.rc-header__container {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    min-height: 72px;
+
+    margin: 0 auto;
+
+    padding: 12px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rc-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    font-family: "Fredoka", sans-serif;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+
+    color: #3185A8;
+
+    text-decoration: none;
+}
+
+.rc-logo img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+}
+
+.rc-desktop {
+    display: none;
+}
+
+/* MENU MOBILE */
+
+.rc-mobile {
+    position: static;
+
+    margin-left: auto;
+}
+
+.rc-mobile > summary {
+    list-style: none;
+}
+
+.rc-mobile > summary::-webkit-details-marker {
+    display: none;
+}
+
+.rc-mobile-botao {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 12px;
+
+    background-color: #FFF7E8;
+
+    color: #5A3E36;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.rc-mobile-botao svg {
+    width: 24px;
+    height: 24px;
+
+    display: block;
+}
+
+.rc-icone-fechar {
+    display: none !important;
+}
+
+.rc-mobile[open] .rc-icone-menu {
+    display: none !important;
+}
+
+.rc-mobile[open] .rc-icone-fechar {
+    display: block !important;
+}
+
+/* PAINEL MOBILE */
+
+.rc-mobile-painel {
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    padding: 14px 20px 20px;
+
+    background-color: #FFFFFF;
+
+    border-top: 1px solid #F1E4D2;
+
+    border-bottom: 1px solid #F1E4D2;
+
+    box-shadow:
+        0 14px 30px rgba(90, 62, 54, 0.16);
+
+    z-index: 10000;
+}
+
+.rc-mobile-nav {
+    display: grid;
+
+    gap: 4px;
+}
+
+.rc-mobile-nav a {
+    width: 100%;
+
+    display: block;
+
+    padding: 13px 14px;
+
+    border-radius: 12px;
+
+    color: #5A3E36;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.rc-mobile-nav a:hover {
+    background-color: #FFF7E8;
+
+    color: #3185A8;
+}
+
+.rc-mobile-acoes {
+    margin-top: 12px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #F1E4D2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.rc-usuario {
+    color: #5A3E36;
+
+    font-weight: 700;
+}
+
+.rc-login {
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    color: #3185A8;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.rc-login:hover {
+    background-color: #FFF7E8;
+}
+
+/* CARRINHO */
+
+.rc-carrinho {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #F58FA3;
+
+    text-decoration: none;
+
+    font-size: 1.2rem;
+}
+
+.rc-carrinho-contador {
+    position: absolute;
+
+    top: -7px;
+    right: -7px;
+
+    min-width: 21px;
+    height: 21px;
+
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #FFFFFF;
+
+    border-radius: 20px;
+
+    background-color: #3185A8;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.rc-carrinho-contador.vazio {
+    display: none;
+}
+
+/* NOTIFICACAO DE ESTOQUE */
+
+.notificacao-estoque {
+    position: fixed;
+
+    top: 92px;
+    left: 50%;
+
+    transform:
+        translate(-50%, -20px);
+
+    z-index: 20000;
+
+    width: calc(100% - 30px);
+    max-width: 460px;
+
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #F2C5CE;
+    border-radius: 15px;
+
+    background-color: #FFFFFF;
+
+    color: #5A3E36;
+
+    box-shadow:
+        0 10px 30px rgba(90, 62, 54, 0.18);
+
+    font-weight: 700;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+}
+
+.notificacao-estoque.mostrar {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+.notificacao-estoque-icone {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #F58FA3;
+
+    color: #FFFFFF;
+
+    font-family: "Fredoka", sans-serif;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.notificacao-estoque-texto {
+    line-height: 1.4;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+
+    .rc-header__container {
+        min-height: 74px;
+
+        padding: 14px 30px;
+    }
+
+    .rc-mobile {
+        display: none;
+    }
+
+    .rc-desktop {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+
+        min-width: 0;
+    }
+
+    .rc-desktop-nav {
+        margin-left: auto;
+        margin-right: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 35px;
+    }
+
+    .rc-desktop-nav a {
+        position: relative;
+
+        color: #5A3E36;
+
+        font-weight: 700;
+
+        text-decoration: none;
+    }
+
+    .rc-desktop-nav a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -6px;
+
+        width: 0;
+        height: 2px;
+
+        background-color: #F58FA3;
+
+        transition: width 0.2s;
+    }
+
+    .rc-desktop-nav a:hover::after {
+        width: 100%;
+    }
+
+    .rc-desktop-actions {
+        display: flex;
+        align-items: center;
+
+        flex-shrink: 0;
+
+        gap: 10px;
+    }
+}
+
+/* CELULAR PEQUENO */
+
+@media (max-width: 480px) {
+
+    .rc-header__container {
+        min-height: 68px;
+
+        padding: 10px 14px;
+    }
+
+    .rc-logo {
+        font-size: 1.2rem;
+    }
+
+    .rc-logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rc-mobile-painel {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .notificacao-estoque {
+        top: 80px;
+
+        width: calc(100% - 24px);
+
+        padding: 13px 15px;
+
+        font-size: 0.92rem;
+    }
+}
