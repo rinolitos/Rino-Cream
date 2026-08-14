@@ -20,7 +20,7 @@ O sistema possui dois tipos de usuários:
 
 ---
 
-## Tecnologias utilizadas
+## Linguagens utilizadas
 
 - HTML
 - CSS
