@@ -1,12 +1,14 @@
 <?php
 
-$arquivoScript =
-    __DIR__ . "/../js/script.js";
+function rc_versao_arquivo($caminhoRelativo) {
 
-$versaoScript =
-    file_exists($arquivoScript)
-        ? filemtime($arquivoScript)
+    $caminhoCompleto =
+        __DIR__ . "/../" . $caminhoRelativo;
+
+    return file_exists($caminhoCompleto)
+        ? filemtime($caminhoCompleto)
         : 1;
+}
 
 ?>
 
@@ -24,7 +26,11 @@ $versaoScript =
 </footer>
 
 <script
-    src="<?= $prefixo ?? "" ?>js/script.js?v=<?= $versaoScript ?>"
+    src="<?= $prefixo ?? "" ?>js/script.js?v=<?= rc_versao_arquivo("js/script.js") ?>"
+></script>
+
+<script
+    src="<?= $prefixo ?? "" ?>js/categoria-scroll.js?v=<?= rc_versao_arquivo("js/categoria-scroll.js") ?>"
 ></script>
 
 </body>

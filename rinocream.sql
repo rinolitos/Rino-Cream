@@ -147,7 +147,7 @@ VALUES
     'Chocolate',
     'Sorvete cremoso sabor chocolate.',
     7.00,
-    'chocolate.jpg',
+    'chocolate.png',
     50,
     1
 ),
@@ -158,7 +158,7 @@ VALUES
     'Morango',
     'Sorvete cremoso sabor morango.',
     7.00,
-    'morango.jpg',
+    'morango.png',
     50,
     1
 ),
@@ -169,7 +169,7 @@ VALUES
     'Baunilha',
     'Sorvete clássico sabor baunilha.',
     7.00,
-    'baunilha.jpg',
+    'baunilha.png',
     100,
     1
 ),
@@ -180,7 +180,7 @@ VALUES
     'Flocos',
     'Sorvete de flocos com pedaços de chocolate.',
     7.50,
-    'flocos.jpg',
+    'flocos.png',
     50,
     1
 ),
@@ -191,7 +191,7 @@ VALUES
     'Milk-shake de Ovomaltine',
     'Milk-shake cremoso com Ovomaltine.',
     14.00,
-    'milkshake-ovomaltine.jpg',
+    'milkshake-ovomaltine.png',
     30,
     1
 ),
@@ -202,7 +202,7 @@ VALUES
     'Milk-shake de Morango',
     'Milk-shake cremoso com sabor de morango.',
     13.00,
-    'milkshake-morango.jpg',
+    'milkshake-morango.png',
     30,
     1
 ),
@@ -213,7 +213,7 @@ VALUES
     'Milk-shake de Chocolate',
     'Milk-shake cremoso de chocolate.',
     13.00,
-    'milkshake-chocolate.jpg',
+    'milkshake-chocolate.png',
     30,
     1
 ),
@@ -224,7 +224,7 @@ VALUES
     'Açaí 300ml',
     'Açaí cremoso servido no copo de 300ml.',
     12.00,
-    'acai-300.jpg',
+    'acai-300.png',
     30,
     1
 ),
@@ -235,7 +235,7 @@ VALUES
     'Açaí 500ml',
     'Açaí cremoso servido no copo de 500ml.',
     16.00,
-    'acai-500.jpg',
+    'acai-500.png',
     30,
     1
 ),
@@ -246,7 +246,7 @@ VALUES
     'Sundae de Chocolate',
     'Sorvete com cobertura de chocolate.',
     10.00,
-    'sundae-chocolate.jpg',
+    'sundae-chocolate.png',
     30,
     1
 ),
@@ -257,7 +257,7 @@ VALUES
     'Sundae de Morango',
     'Sorvete com cobertura de morango.',
     10.00,
-    'sundae-morango.jpg',
+    'sundae-morango.png',
     30,
     1
 ),
@@ -268,7 +268,7 @@ VALUES
     'Sorvete de Pistache',
     'Sabor moderno do pistache.',
     9.50,
-    'pistache.jpg',
+    'pistache.png',
     0,
     1
 );

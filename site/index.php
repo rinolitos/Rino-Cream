@@ -15,17 +15,16 @@ require_once "config/conexao.php";
 
 $titulo = "Início | Rino Cream";
 
-$sql = "
+$sqlCategorias = "
     SELECT *
-    FROM produtos
-    WHERE ativo = 1
-    LIMIT 6
+    FROM categorias
+    ORDER BY nome
 ";
 
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmtCategorias = $pdo->prepare($sqlCategorias);
+$stmtCategorias->execute();
 
-$produtos = $stmt->fetchAll();
+$categorias = $stmtCategorias->fetchAll();
 
 require_once "includes/header.php";
 
@@ -49,182 +48,86 @@ require_once "includes/header.php";
             do seu jeito na Rino Cream.
         </p>
 
-        <a
-            href="cardapio.php"
-            class="botao-principal"
-        >
-            Ver cardápio
-        </a>
+        <div class="hero-acoes">
+
+            <a
+                href="cardapio.php"
+                class="botao-principal"
+            >
+                Ver cardápio
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
-<section class="produtos-destaque">
+<section class="marquee-secao" id="novidades" aria-label="Novidades">
+
+    <div class="marquee-pista">
+
+        <img
+            src="imagens/banner-novidades.png"
+            alt="Novidades Rino Cream"
+            draggable="false"
+        >
+
+        <img
+            src="imagens/banner-novidades.png"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+        >
+
+    </div>
+
+</section>
+
+<section class="categorias-destaque" aria-label="Categorias">
 
     <div class="secao-titulo">
 
         <span>
-            🍨 Nossos favoritos
+            🍨 Explore por categoria
         </span>
 
         <h2>
-            Experimente nossos sabores
+            Encontre seu sabor favorito
         </h2>
 
         <p>
-            Algumas das opções que fazem parte do nosso cardápio.
+            Cada categoria tem sua própria vitrine, deslize para o lado e escolha o seu.
         </p>
 
     </div>
 
-    <div class="produtos-grid">
+    <div class="categorias-grid">
 
-        <?php foreach ($produtos as $produto): ?>
+        <?php foreach ($categorias as $categoria): ?>
 
-            <?php
-
-            $estoque = (int) $produto["estoque"];
-
-            ?>
-
-            <article
-                class="produto-card <?= $estoque <= 0 ? "produto-esgotado" : "" ?>"
+            <a
+                class="categoria-card"
+                href="categoria.php?id=<?= (int) $categoria["idcategoria"] ?>"
             >
 
-                <div class="produto-imagem">
+                <span class="categoria-card-emoji">
+                    <?= rc_emoji_categoria($categoria["nome"]) ?>
+                </span>
 
-                    <?php if (!empty($produto["imagem"])): ?>
+                <h3>
+                    <?= htmlspecialchars($categoria["nome"]) ?>
+                </h3>
 
-                        <img
-                            src="imagens/<?= htmlspecialchars($produto["imagem"]) ?>"
-                            alt="<?= htmlspecialchars($produto["nome"]) ?>"
-                        >
+                <span class="categoria-card-link">
+                    Ver produtos →
+                </span>
 
-                    <?php else: ?>
-
-                        <span>
-                            🍦
-                        </span>
-
-                    <?php endif; ?>
-
-                    <?php if ($estoque <= 0): ?>
-
-                        <span class="produto-selo-esgotado">
-                            Esgotado
-                        </span>
-
-                    <?php endif; ?>
-
-                </div>
-
-                <div class="produto-info">
-
-                    <h3>
-                        <?= htmlspecialchars($produto["nome"]) ?>
-                    </h3>
-
-                    <p>
-                        <?= htmlspecialchars($produto["descricao"]) ?>
-                    </p>
-
-                    <?php if ($estoque > 0): ?>
-
-                        <span class="produto-estoque">
-
-                            <?php if ($estoque === 1): ?>
-
-                                1 unidade disponível
-
-                            <?php else: ?>
-
-                                <?= $estoque ?> unidades disponíveis
-
-                            <?php endif; ?>
-
-                        </span>
-
-                    <?php else: ?>
-
-                        <span class="produto-estoque produto-estoque-esgotado">
-                            Produto indisponível no momento
-                        </span>
-
-                    <?php endif; ?>
-
-                    <div class="produto-footer">
-
-                        <strong>
-
-                            R$
-                            <?= number_format(
-                                $produto["preco"],
-                                2,
-                                ",",
-                                "."
-                            ) ?>
-
-                        </strong>
-
-                        <?php if ($estoque > 0): ?>
-
-                            <form
-                                action="carrinho/adicionar.php"
-                                method="POST"
-                                class="form-adicionar-carrinho"
-                            >
-
-                                <input
-                                    type="hidden"
-                                    name="idproduto"
-                                    value="<?= $produto["idproduto"] ?>"
-                                >
-
-                                <input
-                                    type="hidden"
-                                    name="origem"
-                                    value="inicio"
-                                >
-
-                                <button
-                                    type="submit"
-                                    aria-label="Adicionar <?= htmlspecialchars($produto["nome"]) ?> ao carrinho"
-                                >
-                                    +
-                                </button>
-
-                            </form>
-
-                        <?php else: ?>
-
-                            <button
-                                type="button"
-                                class="botao-produto-esgotado"
-                                disabled
-                                aria-label="<?= htmlspecialchars($produto["nome"]) ?> esgotado"
-                            >
-                                ×
-                            </button>
-
-                        <?php endif; ?>
-
-                    </div>
-
-                </div>
-
-            </article>
+            </a>
 
         <?php endforeach; ?>
 
     </div>
-
-    <a
-        href="cardapio.php"
-        class="botao-secundario"
-    >
-        Ver todos os produtos
-    </a>
 
 </section>
 

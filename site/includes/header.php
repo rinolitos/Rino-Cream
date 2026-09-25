@@ -12,6 +12,21 @@ if (!isset($prefixo)) {
     $prefixo = "";
 }
 
+if (!function_exists("rc_emoji_categoria")) {
+
+    function rc_emoji_categoria($nomeCategoria) {
+
+        $mapa = [
+            "Sorvetes" => "🍦",
+            "Milk-shakes" => "🥤",
+            "Açaí" => "🍇",
+            "Sobremesas" => "🍰",
+        ];
+
+        return $mapa[$nomeCategoria] ?? "🍨";
+    }
+}
+
 $usuarioLogado = $_SESSION["usuario"] ?? null;
 
 $primeiroNome = "";
@@ -59,6 +74,12 @@ if (!empty($_SESSION["carrinho"])) {
     <title>
         <?= htmlspecialchars($titulo) ?>
     </title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="<?= $prefixo ?>imagens/logo.png"
+    >
 
     <link
         rel="preconnect"

@@ -257,7 +257,7 @@ require_once "../../includes/header.php";
                     id="imagem"
                     name="imagem"
                     value="<?= htmlspecialchars($imagem) ?>"
-                    placeholder="Ex.: pistache.jpg"
+                    placeholder="Ex.: pistache.png"
                 >
 
             </div>
